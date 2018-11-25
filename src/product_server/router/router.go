@@ -5,10 +5,6 @@ import(
     "github.com/gin-gonic/gin"
 )
 
-func init() {
-    fmt.Println("日死你党静姣")
-}
-
 /**
  * 获取gin实例 
  */
