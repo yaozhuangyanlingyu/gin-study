@@ -1,8 +1,8 @@
 package router
 
 import(
-    "fmt"
     "github.com/gin-gonic/gin"
+    "product_server/modules/service"
 )
 
 /**
@@ -10,11 +10,10 @@ import(
  */
 func GetGinDefault() *gin.Engine {
     r := gin.Default()
-    r.GET("/ping", func(c *gin.Context) {
-        c.JSON(200, gin.H{
-            "message": "pong",
-        })  
-    }) 
+
+    // 获取商品信息
+    r.GET("/product/info", service.GetProductInfo)
+
     return r
 } 
 
