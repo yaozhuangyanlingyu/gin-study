@@ -12,7 +12,8 @@ func GetGinDefault() *gin.Engine {
     r := gin.Default()
 
     // 获取商品信息
-    r.GET("/product/info", service.GetProductInfo)
+    productService := new(service.ProductService)
+    r.GET("/product/info", productService.GetProductInfo)
 
     return r
 } 
