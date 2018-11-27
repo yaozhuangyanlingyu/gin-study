@@ -2,7 +2,7 @@ package router
 
 import(
     "github.com/gin-gonic/gin"
-    "product_server/modules/service"
+    "monitor/modules/service"
 )
 
 /**
@@ -12,8 +12,8 @@ func GetGinDefault() *gin.Engine {
     r := gin.Default()
 
     // 获取商品信息
-    productService := new(service.ProductService)
-    r.GET("/product/info", productService.GetProductInfo)
+    msgService := new(service.MsgService)
+    r.GET("/sendmsg", msgService.SendMsg)
 
     return r
 } 

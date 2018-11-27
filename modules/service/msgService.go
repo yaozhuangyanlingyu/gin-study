@@ -5,13 +5,13 @@ import(
     "github.com/gin-gonic/gin"
 )
 
-// 商品信息控制器
-type ProductService struct{}
+// 消息控制器
+type MsgService struct{}
 
 /**
- * 获取商品信息
+ * 发送消息
  */
-func (this ProductService) GetProductInfo(c *gin.Context) {
+func (this MsgService) SendMsg(c *gin.Context) {
     fmt.Println("Hello")
 
     c.JSON(200, gin.H{

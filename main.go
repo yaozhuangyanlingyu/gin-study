@@ -4,7 +4,7 @@ import (
     "os"
     "fmt"
     "flag"
-    "product_server/router"
+    "monitor/router"
 )
 
 func init() {
