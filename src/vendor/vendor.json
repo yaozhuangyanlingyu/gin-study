@@ -3,6 +3,12 @@
 	"ignore": "test",
 	"package": [
 		{
+			"checksumSHA1": "m+xzAT4nURcPGkMePX2zklJK/lI=",
+			"path": "github.com/astaxie/beego/config",
+			"revision": "053a075344c118a5cc41981b29ef612bb53d20ca",
+			"revisionTime": "2018-07-31T13:18:48Z"
+		},
+		{
 			"checksumSHA1": "9x7qmlDBvQFIbfA646oglKx+iTQ=",
 			"path": "github.com/gin-gonic/gin",
 			"revision": "465ead47d0f40a24b067798f5bab1c263f09660d",
@@ -13,6 +19,12 @@
 			"path": "github.com/golang/protobuf/proto",
 			"revision": "882cf97a83ad205fd22af574246a3bc647d7a7d2",
 			"revisionTime": "2018-11-20T00:18:57Z"
+		},
+		{
+			"checksumSHA1": "BVLcEDQelqXp6x9u4mbrxE7rxKs=",
+			"path": "github.com/jinzhu/gorm",
+			"revision": "472c70caa40267cb89fd8facb07fe6454b578626",
+			"revisionTime": "2018-11-03T14:14:39Z"
 		},
 		{
 			"checksumSHA1": "GiVgQkx5acnq+JZtYiuHPlhHoso=",
@@ -38,6 +50,5 @@
 			"revision": "5420a8b6744d3b0345ab293f6fcba19c978f1183",
 			"revisionTime": "2018-03-28T19:50:20Z"
 		}
-	],
-	"rootPath": "product_server"
+	]
 }
