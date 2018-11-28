@@ -12,8 +12,8 @@ func GetGinDefault() *gin.Engine {
     r := gin.Default()
 
     // 获取商品信息
-    msgService := new(service.MsgService)
-    r.GET("/sendmsg", msgService.SendMsg)
+    pushService := new(service.PushService)
+    r.GET("/push/wxmsg", pushService.WxMsg)
 
     return r
 } 
