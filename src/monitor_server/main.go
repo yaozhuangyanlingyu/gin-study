@@ -9,7 +9,6 @@ import (
 )
 
 func init() {
-    fmt.Println("start Run")
     // 切换执行目录
     pwd, _ := os.Getwd();
     exeDir := flag.String("d", pwd, "execute directory")
