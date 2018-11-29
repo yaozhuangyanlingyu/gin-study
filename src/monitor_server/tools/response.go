@@ -1,7 +1,7 @@
 package tools
 
-import(
-    "github.com/gin-gonic/gin"
+import (
+	"github.com/gin-gonic/gin"
 )
 
 /**
@@ -11,10 +11,10 @@ import(
  * @return json
  */
 func ApiReturnSuccess(c *gin.Context, code int, msg string) {
-    c.JSON(200, gin.H{
-        "code"      : code,
-        "message"   : msg,
-    })
+	c.JSON(200, gin.H{
+		"code":    code,
+		"message": msg,
+	})
 }
 
 /**
@@ -25,8 +25,8 @@ func ApiReturnSuccess(c *gin.Context, code int, msg string) {
  * @return json
  */
 func ApiReturnError(c *gin.Context, httpCode int, code int, msg string) {
-    c.JSON(httpCode, gin.H{
-        "code"      : code,
-        "message"   : msg,
-    })
+	c.JSON(httpCode, gin.H{
+		"code":    code,
+		"message": msg,
+	})
 }
