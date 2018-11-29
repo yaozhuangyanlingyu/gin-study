@@ -20,13 +20,15 @@ func (this PushService) WxMsg(c *gin.Context) {
 
     // 验证参数
     if len(msg) == 0 {
-        ApiReturnError(c, 200, 1001, "msg param cannot empty!");
+        ApiReturnError(c, 200, 1001, "msg param cannot empty")
         return
     }
 
-    // 获取token
-    tokenUrl := fmt.Sprintf(IniConf.String("WxPushMsg::getTokenUrl"), IniConf.String("WxPushMsg::corpid"), IniConf.String("WxPushMsg::corpsecret"))
-    fmt.Println(tokenUrl)
+    // 发送推送消息
+    err := SendWxMsg(msg)
+    if err != nil {
+        ApiReturnError(c, 200, 1001, err.Error())
+    }
 
     ApiReturnSuccess(c, 0, "success");
 }
