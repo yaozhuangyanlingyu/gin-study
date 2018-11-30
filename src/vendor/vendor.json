@@ -9,6 +9,12 @@
 			"revisionTime": "2018-07-31T13:18:48Z"
 		},
 		{
+			"checksumSHA1": "3kM5bMyfqvdCfgQdOb01CR1aA74=",
+			"path": "github.com/garyburd/redigo/redis",
+			"revision": "569eae59ada904ea8db7a225c2b47165af08735a",
+			"revisionTime": "2018-04-04T16:07:26Z"
+		},
+		{
 			"checksumSHA1": "9x7qmlDBvQFIbfA646oglKx+iTQ=",
 			"path": "github.com/gin-gonic/gin",
 			"revision": "465ead47d0f40a24b067798f5bab1c263f09660d",
@@ -50,5 +56,6 @@
 			"revision": "5420a8b6744d3b0345ab293f6fcba19c978f1183",
 			"revisionTime": "2018-03-28T19:50:20Z"
 		}
-	]
+	],
+	"rootPath": "monitor/src"
 }
