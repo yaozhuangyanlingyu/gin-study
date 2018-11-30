@@ -19,8 +19,8 @@ func init() {
 }
 
 func main() {
+	r := router.GetGinDefault()
 	host := IniConf.String("Server::Host")
 	port := IniConf.String("Server::Port")
-	r := router.GetGinDefault()
 	r.Run(fmt.Sprintf("%s:%s", host, port))
 }

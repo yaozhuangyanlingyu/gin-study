@@ -49,7 +49,7 @@ func GetWxApiToken() (result []byte, err error) {
 /**
  * 发送消息推送
  */
-func SendWxMsg(msg string) (result []byte, err error) {
+func SendWxMsg(toUser string, msg string) (result []byte, err error) {
 	// 获取token
 	accessToken, err := GetWxApiToken()
 	if err != nil {
@@ -61,10 +61,11 @@ func SendWxMsg(msg string) (result []byte, err error) {
 
 	// 发送消息
 	apiURL := fmt.Sprintf(IniConf.String("WxPushMsg::pushUrl"), string(accessToken))
+    agentId, _ := IniConf.Int("WxPushMsg::agentId")
 	tmpMsg := &CustomToUserParam{
-		ToUser:  "@all",
+		ToUser:  toUser,
 		MsgType: "text",
-		AgentId: 1000002,
+		AgentId: agentId,
 		Text:    TextMsgContent{Content: msg},
 		Safe:    0,
 	}
