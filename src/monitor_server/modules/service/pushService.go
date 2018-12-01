@@ -2,6 +2,7 @@ package service
 
 import (
 	"github.com/gin-gonic/gin"
+	"monitor_server/components"
 	. "monitor_server/tools"
 )
 
@@ -28,7 +29,7 @@ func (this PushService) WxMsg(c *gin.Context) {
 	}
 
 	// 发送推送消息
-	_, err := SendWxMsg(toUser, msg)
+	_, err := components.SendWxMsg(toUser, msg)
 	if err != nil {
 		ApiReturnError(c, 200, 1001, err.Error())
 	}

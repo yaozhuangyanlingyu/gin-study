@@ -1,4 +1,4 @@
-package tools
+package components
 
 import (
 	"bytes"
@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+    . "monitor_server/tools"
 )
 
 // accessToken
@@ -30,8 +31,15 @@ type TextMsgContent struct {
  * 获取微信token
  */
 func GetWxApiToken() (result []byte, err error) {
+    // 获取redis缓存
+    key := "WX_API_ACCESS_TOKEN"
+    accessToken := RedisHandleObj.GetString(key)
+    if accessToken != "" {
+        return []byte(accessToken), nil
+    }
+
 	// 获取token
-	tokenUrl := fmt.Sprintf(IniConf.String("WxPushMsg::getTokenUrl"), IniConf.String("WxPushMsg::corpid"), IniConf.String("WxPushMsg::corpsecret"))
+	tokenUrl := fmt.Sprintf(IniConf.String("WxPushMsg::GetTokenUrl"), IniConf.String("WxPushMsg::Corpid"), IniConf.String("WxPushMsg::Corpsecret"))
 	res, err := GetRequest(tokenUrl)
 	if err != nil {
 		return nil, err
@@ -41,7 +49,7 @@ func GetWxApiToken() (result []byte, err error) {
 	if err != nil {
 		return nil, err
 	}
-
+    RedisHandleObj.Set(key, accToken.AccessTokenStr, 3600)
 	result = []byte(accToken.AccessTokenStr)
 	return result, nil
 }
@@ -60,8 +68,8 @@ func SendWxMsg(toUser string, msg string) (result []byte, err error) {
 	}
 
 	// 发送消息
-	apiURL := fmt.Sprintf(IniConf.String("WxPushMsg::pushUrl"), string(accessToken))
-    agentId, _ := IniConf.Int("WxPushMsg::agentId")
+	apiURL := fmt.Sprintf(IniConf.String("WxPushMsg::PushUrl"), string(accessToken))
+    agentId, _ := IniConf.Int("WxPushMsg::AgentId")
 	tmpMsg := &CustomToUserParam{
 		ToUser:  toUser,
 		MsgType: "text",

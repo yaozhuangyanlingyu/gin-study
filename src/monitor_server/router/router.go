@@ -7,6 +7,7 @@ import (
     . "monitor_server/tools"
 	"github.com/gin-gonic/gin"
 	"monitor_server/modules/service"
+	"monitor_server/components"
 )
 
 /**
@@ -18,8 +19,11 @@ func GetGinDefault() *gin.Engine {
 
     // 日志配置
 	gin.DisableConsoleColor()
-    f, _ := os.Create(fmt.Sprintf("%s/%s.log", IniConf.String("Log::logDir"), IniConf.String("Log::logFile")))
+    f, _ := os.Create(fmt.Sprintf("%s/%s.log", IniConf.String("Log::LogDir"), IniConf.String("Log::LogFile")))
     gin.DefaultWriter = io.MultiWriter(f)
+
+    // 初始化组件
+    components.RedisHandleObj = components.NewRedisHandle()
 
 	// 获取商品信息
 	r := gin.Default()

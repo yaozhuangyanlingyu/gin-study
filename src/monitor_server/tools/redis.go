@@ -1,7 +1,0 @@
-package tools
-
-import(
-    "fmt"
-)
-
-
