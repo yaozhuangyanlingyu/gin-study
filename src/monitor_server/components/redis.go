@@ -54,8 +54,3 @@ func (this *RedisHandle) GetString(key string) string {
 }
 
 
-
-
-
-
-

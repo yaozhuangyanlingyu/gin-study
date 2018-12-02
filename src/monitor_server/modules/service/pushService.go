@@ -4,6 +4,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"monitor_server/components"
 	. "monitor_server/tools"
+    "github.com/astaxie/beego/logs"
 )
 
 // 发送消息控制器
@@ -31,8 +32,10 @@ func (this PushService) WxMsg(c *gin.Context) {
 	// 发送推送消息
 	_, err := components.SendWxMsg(toUser, msg)
 	if err != nil {
+        logs.Error(1024, "send wxMsg error")
 		ApiReturnError(c, 200, 1001, err.Error())
 	}
 
+    logs.Info("send toUser: %s msg: %s ok", toUser, msg)
 	ApiReturnSuccess(c, 0, "success")
 }

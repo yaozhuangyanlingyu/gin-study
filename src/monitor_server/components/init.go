@@ -1,8 +1,8 @@
 package components
 
 import(
-    "fmt"
     "github.com/garyburd/redigo/redis"
+    "github.com/astaxie/beego/logs"
 )
 
 var RedisHandleObj *RedisHandle
@@ -18,7 +18,7 @@ func NewRedisHandle() *RedisHandle {
         RedisPool : NewRedisPool(),
     }
     if RedisHandleObj.RedisPool != nil {
-		fmt.Println("redis init complete")
+        logs.Info("redis init complete")
     }
     return RedisHandleObj
 }
