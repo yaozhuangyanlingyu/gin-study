@@ -3,7 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
-	"monitor_server/router"
+	"monitor_server/setting"
 	. "monitor_server/tools"
 	"os"
 )
@@ -19,7 +19,7 @@ func init() {
 }
 
 func main() {
-	r := router.GetGinDefault()
+	r := setting.GetGinDefault()
 	host := IniConf.String("Server::Host")
 	port := IniConf.String("Server::Port")
 	r.Run(fmt.Sprintf("%s:%s", host, port))

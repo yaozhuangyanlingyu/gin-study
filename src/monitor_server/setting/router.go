@@ -1,4 +1,4 @@
-package router
+package setting
 
 import (
     "os"
@@ -18,7 +18,7 @@ func GetGinDefault() *gin.Engine {
     gin.SetMode(gin.DebugMode)
 
     // 日志配置
-	gin.DisableConsoleColor()
+	// gin.DisableConsoleColor()
     f, _ := os.Create(fmt.Sprintf("%s/%s.log", IniConf.String("Log::LogDir"), IniConf.String("Log::LogFile")))
     gin.DefaultWriter = io.MultiWriter(f)
 
