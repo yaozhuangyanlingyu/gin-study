@@ -17,7 +17,7 @@ func LoadConfig() config.Configer {
     if IniConf != nil {
         return IniConf
     }
-	iniconf, err := config.NewConfig("ini", "config/local.conf")
+	iniconf, err := config.NewConfig("ini", "conf/local.conf")
 	if err != nil {
 		panic("file config/local.conf not exists.")
 	}
