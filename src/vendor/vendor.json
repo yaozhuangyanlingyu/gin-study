@@ -45,6 +45,12 @@
 			"revisionTime": "2018-11-03T14:14:39Z"
 		},
 		{
+			"checksumSHA1": "ZOHJwyrlDeqI9OUXEJ8PmDC72Bo=",
+			"path": "github.com/json-iterator/go",
+			"revision": "d05f387f50c0c406889b62cb5ec51c76a64d89ee",
+			"revisionTime": "2018-11-12T06:45:56Z"
+		},
+		{
 			"checksumSHA1": "GiVgQkx5acnq+JZtYiuHPlhHoso=",
 			"path": "github.com/mattn/go-isatty",
 			"revision": "3fb116b820352b7f0c281308a4d6250c22d94e27",
@@ -73,6 +79,5 @@
 			"path": "net/http/pprof",
 			"revision": ""
 		}
-	],
-	"rootPath": "monitor/src"
+	]
 }
