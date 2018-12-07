@@ -24,11 +24,15 @@ func GetGinDefault() *gin.Engine {
 
     // 初始化组件
     components.RedisHandleObj = components.NewRedisHandle()
-
-	// 获取商品信息
 	r := gin.Default()
+
+    // 发送报警接口
 	pushService := new(service.PushService)
 	r.GET("/push/wxmsg", pushService.WxMsg)
+
+    // 监听sentry报警
+	sentryService := new(service.SentryService)
+	r.GET("/sentry/event/check", sentryService.EventCheck)
 
 	return r
 }
